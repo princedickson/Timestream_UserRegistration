@@ -1,0 +1,11 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ζ£νÿÿÿÿÿ8Ώφ±υ1
+g
+java:S1128"JRemove this unused import 'com.explicitUserRegistration.Utils.EmailUtils'.(“«ή„8Νλ²υ1
+X
+java:S1128
+"6Remove this unused import 'lombok.AllArgsConstructor'.(΄Ύφωÿÿÿÿ8Ξλ²υ1
+]
+java:S1128";Remove this unused import 'lombok.RequiredArgsConstructor'.(ΡΨϊψÿÿÿÿ8Ξλ²υ1
+L
+java:S1128"/Remove this unused import 'java.util.Calendar'.(ÿΫφ΄8Ξλ²υ1

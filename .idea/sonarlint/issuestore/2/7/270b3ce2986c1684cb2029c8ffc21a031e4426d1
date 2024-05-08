@@ -1,0 +1,7 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñç¸ıÿÿÿÿ8Õ³¿ó1
+j	java:S100'"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô¬¯ı8§Õ³¿ó1
+a
+java:S1128"DRemove this unused import 'com.explicitUserRegistration.model.User'.(‡Ğì´8¼Ö¿ó1
+X
+java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ8î¾ß¿ó1
