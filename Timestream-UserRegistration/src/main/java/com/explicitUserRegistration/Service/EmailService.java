@@ -1,20 +1,19 @@
 package com.explicitUserRegistration.Service;
 
+import com.explicitUserRegistration.Validator.EmailSender;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class EmailService implements EmailSender{
+public class EmailService implements EmailSender {
     private final  static Logger logger = LoggerFactory.getLogger(EmailService.class);
     private final JavaMailSender mailSender;
 

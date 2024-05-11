@@ -1,9 +1,4 @@
 
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ζ£νÿÿÿÿÿ8Ϊτμ±υ1
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(—·”½ωÿÿÿÿ8βτμ±υ1
-e
-java:S1128"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚ξ‰ή8Φοχ±υ1
-n
-java:S1128
-"QRemove this unused import 'org.springframework.mail.javamail.JavaMailSenderImpl'.(†ΗΑ¤8Φοχ±υ1
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(—·”½ωÿÿÿÿ8βτμ±υ1
