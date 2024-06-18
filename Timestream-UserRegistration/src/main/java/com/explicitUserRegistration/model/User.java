@@ -7,8 +7,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Getter
@@ -16,7 +20,10 @@ import java.util.Collections;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-public class User implements UserDetails {
+public class User implements UserDetails, Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1905122041950251207L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "app_user_sequence")
@@ -47,6 +54,12 @@ public class User implements UserDetails {
     private AppUserRole appuserRole;
     private Boolean locked = false;
     private Boolean enable = false;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private Set<ConfirmationToken> confirmationTokens = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private Set<PasswordResetToken> passwordResetTokens = new HashSet<>();
 
     public User(String firstname, String lastname, String email, String password, AppUserRole appuserRole) {
         this.firstname = firstname;

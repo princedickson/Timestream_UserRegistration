@@ -1,8 +1,6 @@
 package com.explicitUserRegistration.Security.Config;
 
 import com.explicitUserRegistration.Service.UserService;
-import com.explicitUserRegistration.model.User;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,22 +23,19 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/register")
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/api/v1/register/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
-                .formLogin(form -> form.isCustomLoginPage())
-                .authenticationProvider(AuthProvider());
+                .authenticationProvider(authProvider());
         return http.build();
     }
 
-
     @Bean
-    public DaoAuthenticationProvider AuthProvider() {
+    public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder);
         daoAuthenticationProvider.setUserDetailsService(userService);
         return daoAuthenticationProvider;
-
     }
 }

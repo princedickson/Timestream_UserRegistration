@@ -1,8 +1,10 @@
 
-r	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿóäıÿÿÿÿ8¼¡¾¢ô1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æ£íÿÿÿÿÿ8½¡¾¢ô1
+r	java:S117!"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿóäıÿÿÿÿ8µº©Ê÷1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(æ£íÿÿÿÿÿ8¶º©Ê÷1
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(û¿ 8Ä¡¾¢ô1
-i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûºV8Å¡¾¢ô1
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(û¿ 8Çº©Ê÷1
+i	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûºV8Éº©Ê÷1
 N
-java:S1135""2Complete the task associated to this TODO comment.(¨´§`8ì¾‚³õ1
+java:S1135#"2Complete the task associated to this TODO comment.(¨´§`8Ëº©Ê÷1
+‚
+java:S1128"`Remove this unused import 'com.explicitUserRegistration.Repository.ConfirmationTokenRepository'.(šÿ˜†şÿÿÿÿ8¬ğ‹ì‚2

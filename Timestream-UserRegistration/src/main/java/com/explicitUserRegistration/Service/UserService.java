@@ -1,5 +1,6 @@
 package com.explicitUserRegistration.Service;
 
+import com.explicitUserRegistration.Repository.ConfirmationTokenRepository;
 import com.explicitUserRegistration.Repository.UserRepository;
 import com.explicitUserRegistration.model.ConfirmationToken;
 import com.explicitUserRegistration.model.User;
@@ -17,10 +18,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class UserService implements UserDetailsService {
 
+    private final static String USER_NOT_FOUND = " user with email %s not found";
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder encoder;
     private ConfirmationTokenService confimationTokenService;
-    private final static String USER_NOT_FOUND = " user with email %s not found";
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -28,13 +29,13 @@ public class UserService implements UserDetailsService {
                 (() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND, email)));
     }
 
-    public String Signup(User user){
+    public String Signup(User user) {
         boolean UserExist = userRepository.findByEmail(user.getEmail()).isPresent();
-        if(UserExist){
+        if (UserExist) {
             // TODO: if email not confirmed send confirmation mail
-            throw  new IllegalStateException("email already exist");
+            throw new IllegalStateException("email already exist");
         }
-        String  encodedPassword = encoder.encode(user.getPassword());
+        String encodedPassword = encoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userRepository.save(user);
 

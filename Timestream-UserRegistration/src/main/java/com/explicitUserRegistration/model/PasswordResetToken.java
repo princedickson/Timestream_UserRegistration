@@ -7,21 +7,21 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode
 @Entity
-//@Inheritance(strategy = InheritanceType.JOINED)
-public class ConfirmationToken implements Serializable {
-
+public class PasswordResetToken implements Serializable {
     @Serial
     private static final long serialVersionUID = 1905122041950251207L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "confirmation_token_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "password_reset_sequence")
     @SequenceGenerator(
-            name = "confirmation_token_sequence",
-            sequenceName = "confirmation_token_sequence",
+            name = "password_reset_sequence",
+            sequenceName = "password_reset_sequence",
             allocationSize = 1
     )
     private Long id;
@@ -35,13 +35,11 @@ public class ConfirmationToken implements Serializable {
     @Column(nullable = false)
     private LocalDateTime expireAt;
 
-    private LocalDateTime confirmedAt;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expireAt, User user) {
+    public PasswordResetToken(String token, LocalDateTime createdAt, LocalDateTime expireAt, User user) {
         this.token = token;
         this.createdAt = createdAt;
         this.expireAt = expireAt;
